@@ -11,21 +11,36 @@ export default NextAuth({
       return session
     },
 
-    async signIn({user, account, profile,  credentials}){
-      const isAllowedToSignIn = true;
+    async signIn({user, account, profile}){
       const { email } = user;
 
-      if(isAllowedToSignIn){
+      try{
         await fauna.query(
-          query.Create(
-            query.Collection("users"),
-            { data: { email }}
+          query.If(
+            query.Not(
+              query.Exists(
+                query.Match(
+                  query.Index('user_by_email'),
+                  query.Casefold(user.email)
+                )
+              )
+            ),
+            query.Create(
+              query.Collection("users"),
+              { data: { email }}
+            ),
+            query.Get(
+              query.Match(
+                query.Index('user_by_email'),
+                query.Casefold(user.email)
+              )
+            )
           )
         )
   
         return true
 
-      } else {
+      } catch {
         return false
       }
 
