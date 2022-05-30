@@ -1432,6 +1432,14 @@
     "@prismicio/helpers" "^2.2.1"
     "@prismicio/types" "^0.1.27"
 
+"@prismicio/client@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.5.0.tgz#00fadff0572cb7d2d90c9f4bf7acb99723316042"
+  integrity sha512-ZAGmytsrsa1oDFsxjOmVrJ+a4aOp8Psi4JaD90nAFt1N3WquS4jzVkPCnDXg6j3ZufV26BIxMiPPi4XCzl9KyA==
+  dependencies:
+    "@prismicio/helpers" "^2.3.0"
+    "@prismicio/types" "^0.1.27"
+
 "@prismicio/helpers@^1.0.4":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-1.2.0.tgz#7e6c8a2ca469af3c3ff1997b4d8d4eb88ee86cdf"

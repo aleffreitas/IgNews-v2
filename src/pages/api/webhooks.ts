@@ -65,8 +65,8 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             await saveSubscription(
               checkoutSession.subscription.toString(),
               checkoutSession.customer.toString(),
-              true
-            )
+              true,
+            );
 
             break;
           default:
@@ -77,7 +77,7 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
       }
     }
 
-    response.json({ received: 'ok' });
+    response.json({ received: true });
 
   } else {
     response.setHeader('Allow', 'POST');
